@@ -1,0 +1,43 @@
+service: tutorial-upload
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 512
+
+plugins:
+  - serverless-plugin-optimize
+  - serverless-offline
+
+package:
+  individually: true
+  exclude:
+    - .git/**
+    - src/**
+    - test/**
+    - e2e/**
+    - views/**
+    - docker-postgres-init/**
+    - coverage/**
+    - nodemon.json
+    - README.md
+    - ./*.json
+    - ./*.log
+    - ./*.yml
+    - ./*.lock
+  include:
+    - package.json
+    - node_modules/sqlite3/*
+
+functions:
+  main:
+    handler: dist/handler.handler
+    events:
+      - http:
+          cors: true
+          path: '/swagger'
+          method: any
+      - http:
+          cors: true
+          method: any
+          path: /{proxy+}
