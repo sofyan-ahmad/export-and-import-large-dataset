@@ -45,8 +45,8 @@ export class OrderService extends TypeOrmCrudService<Order> {
   async import(orders: Order[]): Promise<void> {
     // validation
 
-    const userCache = [];
-    const productCache = [];
+    const userCache = {};
+    const productCache = {};
 
     await Promise.all(
       orders.map(
