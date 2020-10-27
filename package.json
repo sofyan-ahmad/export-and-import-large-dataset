@@ -37,7 +37,7 @@
     "rxjs": "^6.5.4",
     "sqlite3": "^4.2.0",
     "swagger-ui-express": "^4.1.4",
-    "systeminformation": "^4.26.9",
+    "systeminformation": "^4.27.11",
     "typeorm": "^0.2.25",
     "uuid": "^8.1.0"
   },
